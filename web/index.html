@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gatehouse · Parking control</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <header class="shell">
+    <a class="brand" href="/" aria-label="Gatehouse home"><svg viewBox="0 0 32 32" width="30" height="30" aria-hidden="true"><path d="M5 27V7h22v20M5 11h22M12 11v16M20 11v16" fill="none" stroke="currentColor" stroke-width="2.5"/></svg>Gatehouse</a>
+    <span class="workspace">Parking control / Main lot</span>
+    <span id="connection" class="connection" role="status">Connecting</span>
+  </header>
+  <main>
+    <div class="page-heading"><div><h1>Lot overview</h1><p>Your arrivals, spaces, and departures in one place.</p></div><span id="updated" class="muted">Waiting for parking data</span></div>
+    <div id="outage" class="outage" role="alert" hidden>Parking data is unavailable. Reconnecting automatically…</div>
+    <section class="summary" aria-label="Parking summary">
+      <div><span class="muted">Parked now</span><p><strong id="count">—</strong><span id="capacity" class="muted"> / — spaces</span></p></div>
+      <div><span class="muted">Available spaces</span><p><strong id="available">—</strong></p></div>
+      <div><span class="muted">Entry gate</span><p><span id="gate" class="gate">Waiting for data</span></p></div>
+    </section>
+    <div class="layout">
+      <div class="main-column">
+        <section class="panel bay-panel"><div class="section-heading"><h2>Space availability</h2><span class="muted">Live occupancy</span></div><div id="bays" class="bays" aria-label="Parking spaces"></div><p class="legend"><span class="key occupied"></span>Occupied <span class="key"></span>Available</p></section>
+        <section class="panel"><div class="section-heading"><h2>Parked vehicles</h2><span id="vehicle-total" class="muted">— vehicles</span></div>
+          <div class="table-wrap"><table><thead><tr><th>License plate</th><th>Arrival time</th><th><span class="sr-only">Action</span></th></tr></thead><tbody id="vehicles"></tbody></table></div>
+          <p id="empty" class="empty">Waiting for the first update…</p>
+        </section>
+      </div>
+      <aside>
+        <section class="panel"><div class="section-heading"><h2>Camera simulator</h2><span class="camera-label">HTTP POST</span></div><p class="muted">Send a plate just as the entrance camera would.</p>
+          <form id="entry-form"><label for="plate">License plate</label><input id="plate" name="plate" placeholder="e.g. 123-45-678" required minlength="3" maxlength="12" pattern="[A-Za-z0-9\-]{3,12}" autocomplete="off"><p id="plate-help" class="help">3–12 letters, digits, or hyphens.</p><button id="admit" class="primary" type="submit">Register arrival <span aria-hidden="true">↗</span></button></form>
+          <p id="message" class="message" role="status" aria-live="polite"></p>
+        </section>
+        <section class="panel"><div class="section-heading"><h2>Arrival log</h2><span class="muted">Latest 20</span></div><ol id="history" class="history"></ol><p id="history-empty" class="empty">No arrivals recorded yet.</p></section>
+      </aside>
+    </div>
+    <footer><span>Gatehouse · Full Stack DevOps project</span><span>Updates every 2 seconds</span></footer>
+  </main>
+</body>
+</html>

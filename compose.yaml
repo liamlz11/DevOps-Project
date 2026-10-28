@@ -1,0 +1,44 @@
+name: gatehouse
+services:
+  web:
+    build: ./web
+    ports:
+      - "127.0.0.1:${APP_PORT:-8080}:80"
+    restart: unless-stopped
+    depends_on:
+      api:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "wget", "-q", "-O", "/dev/null", "http://127.0.0.1/"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  api:
+    build: ./api
+    restart: unless-stopped
+    environment:
+      REDIS_HOST: redis
+      PARKING_CAPACITY: "${PARKING_CAPACITY:-5}"
+    depends_on:
+      redis:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:5000/api/health', timeout=2)"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  redis:
+    build: ./redis
+    restart: unless-stopped
+    volumes:
+      - redis-data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+volumes:
+  redis-data:
