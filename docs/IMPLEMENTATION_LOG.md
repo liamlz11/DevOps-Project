@@ -11,3 +11,5 @@ Execution authorized on 2026-10-28, including local deployment, GitHub push, CI,
 - Final independent review found a Redis retry budget defect and a browser pattern defect. Both corrected. The retry-policy regression test failed before the fix; real Redis outage changed from HTML 504 to JSON 503 after the fix.
 - Ruling: correct the browser pattern in this pass despite its minor review label, because client-side validation is part of the delivered form. Cost: a one-character HTML escape, verified using modern RegExp semantics and the deployed form.
 - Task 6: README, architecture, AI usage, demo/review guide, and verification record written. Human classroom rehearsal remains the student's responsibility.
+- Task 5: source pushed to private `liamlz11/DevOps-Project`; main CI passed. Release `v1.0.0` passed tests, published three GHCR images, and verified all three manifests (run `40708984794`).
+- Final: all eleven tests passed; real Redis outage returned JSON 503; no independent-review findings remain unresolved. Local app left healthy on port 8080 with two demo cars.

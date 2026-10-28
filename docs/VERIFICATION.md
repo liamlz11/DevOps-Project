@@ -25,7 +25,15 @@ An independent read-only source review identified excessive Redis retries and th
 
 The initial source push passed [GitHub Actions run 40708681732](https://github.com/liamlz11/DevOps-Project/actions/runs/40708681732). That run built the images, ran the API/storage and HTTP checks, and verified persistence on an Ubuntu hosted runner.
 
-Versioned GHCR publication results will be recorded after the release run. Local deployment remains running independently of GitHub.
+[Release run 40708984794](https://github.com/liamlz11/DevOps-Project/actions/runs/40708984794) completed successfully for tag `v1.0.0` at source commit `64657573cd332c8f714a3b0dc91eee77bdba538e`. The test job passed, all three matrix publishing jobs passed, and each authenticated `docker buildx imagetools inspect` step read back the published manifest.
+
+| Published version | Verified manifest digest |
+| --- | --- |
+| `ghcr.io/liamlz11/devops-project-web:v1.0.0` | `sha256:ad370f48c73b82ea2194b427fe3739cd78a4fcdacbc2f2e4eee0837ab34db818` |
+| `ghcr.io/liamlz11/devops-project-api:v1.0.0` | `sha256:d2ddf83bf6a449b3843818021c0629066a04adc9c381b1f2f3bae6757cde5b8f` |
+| `ghcr.io/liamlz11/devops-project-redis:v1.0.0` | `sha256:d19ffc02a9db39f415b1baaa6d1215c5e5bc1290784cc767954770d9d06d651f` |
+
+The private repository contains the source, original assignment, plan, tests, workflow, and documentation. No virtual environment, local test state, credentials, or Docker volume contents are committed. Local deployment remains running independently of GitHub, with two intentionally entered demo cars (`123-45-678` and `876-54-321`) and three free spaces.
 
 ## Human presentation step
 

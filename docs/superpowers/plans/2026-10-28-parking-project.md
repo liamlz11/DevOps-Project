@@ -154,7 +154,7 @@ docs/DEMO.md                        5–10 minute presentation and review prepar
 - [x] Create a publishing job dependent on successful CI, restricted to version tags. Use a matrix for `web`, `api`, and `redis`.
 - [x] Authenticate to `ghcr.io` with `GITHUB_TOKEN`; grant the publishing job `contents: read` and `packages: write`. Keep image names lowercase and never publish from a pull request.
 - [x] Validate YAML and review workflow expressions locally. Describe the workflow stages in README.
-- [ ] When the user resumes GitHub work: connect the local repository, commit and push, verify CI, then create a version tag and verify the three GHCR packages. The user authorized this execution on 2026-10-28.
+- [x] When the user resumes GitHub work: connect the local repository, commit and push, verify CI, then create a version tag and verify the three GHCR packages. The user authorized this execution on 2026-10-28.
 
 ## Task 6 — Finish the documentation and rehearse the demo
 
@@ -175,6 +175,8 @@ docs/DEMO.md                        5–10 minute presentation and review prepar
 - [x] Release-car behavior and full-capacity alert work, including duplicate and concurrent arrivals.
 - [x] Active cars and arrival history survive container recreation through the Redis volume.
 - [x] Tests and local integration checks pass with their results recorded.
-- [ ] Pipeline configuration covers CI and versioned GHCR publishing; actual GitHub execution is completed when the user resumes that work.
+- [x] Pipeline configuration covers CI and versioned GHCR publishing; actual GitHub execution is completed when the user resumes that work.
 - [x] The two required documentation files and the 5–10 minute demo guide are ready.
 - [ ] The student can explain the code and configuration used in the classroom review.
+
+Technical implementation, local deployment, test suite, GitHub CI, and v1.0.0 GHCR publishing are verified in `docs/VERIFICATION.md`. The two remaining unchecked items require the student to rehearse and demonstrate understanding in person.
