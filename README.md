@@ -136,6 +136,7 @@ docker compose up --build -d --wait      # rebuild and deploy source changes
 
 ## Classroom materials
 
+- [מדריך הכנה בעברית](docs/STUDY_GUIDE_HE.md): סדר לימוד, הסברים, תרגילים ובדיקת הבנה לקראת ההצגה.
 - [Demo and code review guide](docs/DEMO.md): a 5–10 minute presentation, exact commands, and questions to rehearse.
 - [Architecture](ARCHITECTURE.md): request flow, data model, Docker and workflow decisions, and limits.
 - [AI usage](AI_USAGE.md): prompts and genuine errors/corrections.
