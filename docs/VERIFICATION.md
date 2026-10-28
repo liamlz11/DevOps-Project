@@ -23,7 +23,9 @@ An independent read-only source review identified excessive Redis retries and th
 
 ## GitHub release evidence
 
-To be filled with the actual run and package results after the final push. Local deployment remains running independently of GitHub.
+The initial source push passed [GitHub Actions run 40708681732](https://github.com/liamlz11/DevOps-Project/actions/runs/40708681732). That run built the images, ran the API/storage and HTTP checks, and verified persistence on an Ubuntu hosted runner.
+
+Versioned GHCR publication results will be recorded after the release run. Local deployment remains running independently of GitHub.
 
 ## Human presentation step
 

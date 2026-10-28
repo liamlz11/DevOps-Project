@@ -67,3 +67,5 @@ jobs:
           push: true
           tags: ${{ steps.image.outputs.name }}:${{ github.ref_name }}
           labels: org.opencontainers.image.source=https://github.com/${{ github.repository }}
+      - name: Verify published manifest
+        run: docker buildx imagetools inspect "${{ steps.image.outputs.name }}:${{ github.ref_name }}"
